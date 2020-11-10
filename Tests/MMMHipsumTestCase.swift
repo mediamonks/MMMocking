@@ -15,10 +15,10 @@ class MMMHipsumTestCase: XCTestCase {
 		
 		XCTAssertEqual(words.count, 4)
 		
-		let range = hipsum.words(count: 1..<10)
+		let range = hipsum.words(count: 1...10)
 		
 		XCTAssert(range.count > 0)
-		XCTAssert(range.count < 10)
+		XCTAssert(range.count <= 10)
 	}
 	
 	// Make sure the swift RangeExpresion helpers work as expected.
@@ -28,46 +28,46 @@ class MMMHipsumTestCase: XCTestCase {
 		let hipsum2 = MMMHipsum(seed: 1)
 		
 		XCTAssertEqual(
-			hipsum.words(count: 0..<5),
+			hipsum.words(count: 0...5),
 			hipsum2.words(count: NSMakeRange(0, 5))
 		)
 		
 		XCTAssertEqual(
 			hipsum.sentence(wordCount: NSMakeRange(0, 5)),
-			hipsum2.sentence(wordCount: 0..<5)
+			hipsum2.sentence(wordCount: 0...5)
 		)
 		
 		XCTAssertEqual(
-			hipsum.sentenceFragment(wordCount: 0..<10),
+			hipsum.sentenceFragment(wordCount: 0...10),
 			hipsum2.sentenceFragment(wordCount: NSMakeRange(0, 10))
 		)
 		
 		XCTAssertEqual(
-			hipsum.titleCaseString(wordCount: 0..<10),
+			hipsum.titleCaseString(wordCount: 0...10),
 			hipsum2.titleCaseString(wordCount: NSMakeRange(0, 10))
 		)
 		
 		XCTAssertEqual(
-			hipsum.paragraph(sentenceCount: 0..<5, wordsPerSentence: 0..<5),
-			hipsum2.paragraph(sentenceCount: NSMakeRange(0, 5), wordsPerSentence: NSMakeRange(0, 5))
+			hipsum.paragraph(sentenceCount: 2...5, wordsPerSentence: 2...5),
+			hipsum2.paragraph(sentenceCount: NSMakeRange(2, 7), wordsPerSentence: NSMakeRange(2, 7))
 		)
 		
 		XCTAssertEqual(
 			hipsum.text(
-				paragraphCount: 0..<10,
-				sentencesPerParagraph: 0..<5,
-				wordsPerSentence: 0..<20
+				paragraphCount: 2...10,
+				sentencesPerParagraph: 2...5,
+				wordsPerSentence: 5...20
 			),
 			hipsum2.text(
-				paragraphCount: NSMakeRange(0, 10),
-				sentencesPerParagraph: NSMakeRange(0, 5),
-				wordsPerSentence: NSMakeRange(0, 20)
+				paragraphCount: NSMakeRange(2, 12),
+				sentencesPerParagraph: NSMakeRange(2, 7),
+				wordsPerSentence: NSMakeRange(5, 25)
 			)
 		)
 		
 		XCTAssertEqual(
 			hipsum.sentence(wordCount: NSMakeRange(5, 5)),
-			hipsum2.sentence(wordCount: 5..<10)
+			hipsum2.sentence(wordCount: 5...10)
 		)
 	}
 	

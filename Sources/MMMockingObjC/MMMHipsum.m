@@ -61,7 +61,7 @@ static MMMHipsum *sharedInstance = nil;
 }
 
 - (NSInteger)nextIntegerFromRange:(NSRange)range {
-	return [_random nextIntegerFrom:range.location to:range.location + range.length - 1];
+	return [_random nextIntegerFrom:range.location to:range.location];
 }
 
 - (NSArray *)wordsWithCountInRange:(NSRange)range
