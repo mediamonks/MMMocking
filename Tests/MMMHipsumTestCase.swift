@@ -19,16 +19,6 @@ class MMMHipsumTestCase: XCTestCase {
 		XCTAssert(range.count <= 10)
 	}
 	
-	func testSentence() {
-		
-		let hipsum = MMMHipsum(seed: Int.random(in: 0...10000))
-		let words = hipsum.sentence(wordCount: 2...7).split(separator: " ")
-		
-		// We want somewhere from 2 to 7 words.
-		XCTAssert(words.count >= 2)
-		XCTAssert(words.count <= 8)
-	}
-	
 	// Make sure the swift RangeExpresion helpers work as expected.
 	func testRangeExpressions() {
 		
