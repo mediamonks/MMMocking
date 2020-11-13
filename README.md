@@ -1,7 +1,7 @@
 # MMMocking
 
-[![Build](https://github.com/mediamonks/MMMocking/workflows/Build/badge.svg)](https://github.com/mediamonks/MMMocking/actions?query=workflow%3A%22Build)
-[![Test](https://github.com/mediamonks/MMMocking/workflows/Test/badge.svg)](https://github.com/mediamonks/MMMocking/actions?query=workflow%3A%22Test)
+[![Build](https://github.com/mediamonks/MMMocking/workflows/Build/badge.svg)](https://github.com/mediamonks/MMMocking/actions?query=workflow%3ABuild)
+[![Test](https://github.com/mediamonks/MMMocking/workflows/Test/badge.svg)](https://github.com/mediamonks/MMMocking/actions?query=workflow%3ATest)
 
 Mock data using hip lorem ipsum and pseudo random numbers.
 
