@@ -1,6 +1,7 @@
 # MMMocking
 
-[![iOS Build + Test](https://github.com/mediamonks/MMMocking/workflows/iOS%20build%20+%20test/badge.svg)](https://github.com/mediamonks/MMMocking/actions?query=workflow%3A%22iOS+build+%2B+test%22)
+[![iOS Build](https://github.com/mediamonks/MMMocking/workflows/iOS%20build/badge.svg)](https://github.com/mediamonks/MMMocking/actions?query=workflow%3A%22iOS+build)
+[![iOS Test](https://github.com/mediamonks/MMMocking/workflows/iOS%20test/badge.svg)](https://github.com/mediamonks/MMMocking/actions?query=workflow%3A%22iOS+test)
 
 Mock data using hip lorem ipsum and pseudo random numbers.
 
