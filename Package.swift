@@ -4,7 +4,10 @@ import PackageDescription
 let package = Package(
     name: "MMMocking",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v11),
+        .tvOS(.v10),
+        .watchOS(.v3),
+        .macOS(.v10_12)
     ],
     products: [
         .library(

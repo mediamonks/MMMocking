@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
 	s.name = "MMMocking"
-	s.version = "0.1.4"
+	s.version = "0.2.0"
 	s.summary = "Mock data using hip lorem ipsum and pseudo random numbers"
 	s.description =  s.summary
 	s.homepage = "https://github.com/mediamonks/#{s.name}"
@@ -15,6 +15,9 @@ Pod::Spec.new do |s|
 	s.source = { :git => "https://github.com/mediamonks/#{s.name}.git", :tag => s.version.to_s }
 
 	s.ios.deployment_target = '11.0'
+	s.watchos.deployment_target = '3.0'
+	s.tvos.deployment_target = '10.0'
+	s.osx.deployment_target = '10.12'
 
 	s.subspec 'ObjC' do |ss|
 		ss.source_files = [ "Sources/#{s.name}ObjC/*.{h,m}" ]
