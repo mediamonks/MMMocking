@@ -1,0 +1,47 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/MMMocking/MMMocking/Sources/MMMockingObjC/MMMHipsum.h",
+      "line": 18,
+      "symbol": "MMMHipsum.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMocking/MMMocking/Sources/MMMockingObjC/MMMHipsum.h",
+      "line": 35,
+      "symbol": "MMMHipsum.-sentenceFragmentWithWordCountInRange:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMocking/MMMocking/Sources/MMMockingObjC/MMMHipsum.h",
+      "line": 42,
+      "symbol": "MMMHipsum.-paragraphWithSentenceCountInRange:wordsPerSentenceInRange:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMocking/MMMocking/Sources/MMMockingObjC/MMMHipsum.h",
+      "line": 46,
+      "symbol": "MMMHipsum.-textWithParagraphCountInRange:sentencesPerParagraphInRange:wordsPerSentenceInRange:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMocking/MMMocking/Sources/MMMockingObjC/MMMPseudoRandomSequence.h",
+      "line": 19,
+      "symbol": "MMMPseudoRandomSequence.-initWithSeed:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMocking/MMMocking/Sources/MMMockingObjC/MMMPseudoRandomSequence.h",
+      "line": 20,
+      "symbol": "MMMPseudoRandomSequence.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/MMMocking/MMMocking"
+}

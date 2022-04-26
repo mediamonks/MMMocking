@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MMMocking  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="MMMocking  Reference"></a>
+
+    <header class="header">
+      <a href="https://media.monks.com">
+        <img src="img/logo.png" srcset="img/logo@2x.png 2x" alt="Media.Monks" class="header-logo" />
+      </a>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">MMMocking Reference</a>
+      <img class="carat" src="img/carat.png" alt=""/>
+      MMMocking  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MMMHipsum.html">MMMHipsum</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/MMMPseudoRandomSequence.html">MMMPseudoRandomSequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PseudoRandomSequence.html">PseudoRandomSequence</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/MMMHipsum.html">MMMHipsum</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/MMMPseudoRandomSequence.html">MMMPseudoRandomSequence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <h1 id='mmmocking' class='heading'>MMMocking</h1>
+
+<p><a href="https://github.com/mediamonks/MMMocking/actions?query=workflow%3ABuild"><img src="https://github.com/mediamonks/MMMocking/workflows/Build/badge.svg" alt="Build"></a>
+<a href="https://github.com/mediamonks/MMMocking/actions?query=workflow%3ATest"><img src="https://github.com/mediamonks/MMMocking/workflows/Test/badge.svg" alt="Test"></a></p>
+
+<p>Mock data using hip lorem ipsum and pseudo random numbers.</p>
+
+<p>(This is a part of <code>MMMTemple</code> suite of iOS libraries we use at <a href="https://www.mediamonks.com/">MediaMonks</a>.)</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/mediamonks/MMMSpecs.git'</span>
+<span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+<span class="p">.</span><span class="nf">.</span><span class="p">.</span>
+<span class="nf">pod</span> <span class="s1">'MMMocking'</span>
+</code></pre>
+
+<p>(Use &lsquo;MMMocking/ObjC&rsquo; when Swift wrappers are not needed.)</p>
+
+<p>SPM:</p>
+<pre class="highlight swift"><code><span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/mediamonks/MMMocking"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMajor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"0.2.0"</span><span class="p">))</span>
+</code></pre>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p><code>MMMocking</code> is a collection of helpers for generating useful mock data.</p>
+<h3 id='mmmpseudorandomsequence' class='heading'>MMMPseudoRandomSequence</h3>
+
+<p>A wrapper for a sequence of randomly looking integers that is convenient to use
+for testing (so every sequence of pseudo-random events can be reproduced many
+times). For non-test purposes use <code>arc4random()</code> and friends instead.</p>
+
+<p>A seed can be set for the standard <code>rand()</code> function as well, but its usage cannot
+be restricted to a single entity, so a sequence can be disrupted.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">random</span> <span class="o">=</span> <span class="kt">MMMPseudoRandomSequence</span><span class="p">(</span><span class="nv">seed</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">random</span><span class="o">.</span><span class="nf">next</span><span class="p">()</span> <span class="c1">// Returns a "pseudo random" UInt64</span>
+<span class="n">random</span><span class="o">.</span><span class="nf">nextBool</span><span class="p">()</span> <span class="c1">// Self explanatory, a random `true` or `false`</span>
+<span class="n">random</span><span class="o">.</span><span class="nf">nextDouble</span><span class="p">()</span> <span class="c1">// A random double between 0 and 1.</span>
+<span class="n">random</span><span class="o">.</span><span class="nf">nextInteger</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="mi">0</span><span class="o">...</span><span class="mi">20</span><span class="p">)</span> <span class="c1">// A random integer between 0 and 20.</span>
+<span class="n">random</span><span class="o">.</span><span class="nf">randomElement</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">])</span> <span class="c1">// A random element in the array.</span>
+
+<span class="c1">// Since it's pseudo random, if we start a new sequence with the same seed, we</span>
+<span class="c1">// get the same results. So:</span>
+<span class="kt">MMMPseudoRandomSequence</span><span class="p">(</span><span class="nv">seed</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nf">next</span><span class="p">()</span> <span class="o">==</span> <span class="kt">MMMPseudoRandomSequence</span><span class="p">(</span><span class="nv">seed</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nf">next</span><span class="p">()</span>
+</code></pre>
+<h3 id='pseudorandomsequence' class='heading'>PseudoRandomSequence</h3>
+
+<p>Seedable random number generator conforming to <code>RandomNumberGenerator</code> protocol.
+Similar to <code>MMMPseudoRandomSequence</code> but <code>NSObject</code>-free.</p>
+<h3 id='mmmhipsum' class='heading'>MMMHipsum</h3>
+
+<p>Very basic helpers for generation of test strings. Lorem ipsum inspired.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">hipsum</span> <span class="o">=</span> <span class="kt">MMMHipsum</span><span class="p">(</span><span class="nv">seed</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">// Returns an array of strings with at least 1 but at most 10 words.</span>
+<span class="n">hipsum</span><span class="o">.</span><span class="nf">words</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1">// Returns a sentence with 1 to 5 words.</span>
+<span class="n">hipsum</span><span class="o">.</span><span class="nf">sentence</span><span class="p">(</span><span class="nv">wordCount</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">// Returns a "Title Case String".</span>
+<span class="n">hipsum</span><span class="o">.</span><span class="nf">titleCaseString</span><span class="p">(</span><span class="nv">wordCount</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1">// A paragraph with 2 to 7 sentences, with 2 to 7 words per sentence.</span>
+<span class="n">hipsum</span><span class="o">.</span><span class="nf">paragraph</span><span class="p">(</span><span class="nv">sentenceCount</span><span class="p">:</span> <span class="mi">2</span><span class="o">...</span><span class="mi">7</span><span class="p">,</span> <span class="nv">wordsPerSentence</span><span class="p">:</span> <span class="mi">2</span><span class="o">...</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="c1">// A full "body" text, with multiple paragraphs, sentences and words.</span>
+<span class="n">hipsum</span><span class="o">.</span><span class="nf">text</span><span class="p">(</span>
+  <span class="nv">paragraphCount</span><span class="p">:</span> <span class="mi">2</span><span class="o">...</span><span class="mi">12</span><span class="p">,</span>
+  <span class="nv">sentencesPerParagraph</span><span class="p">:</span> <span class="mi">2</span><span class="o">...</span><span class="mi">7</span><span class="p">,</span>
+  <span class="nv">wordsPerSentence</span><span class="p">:</span> <span class="mi">5</span><span class="o">...</span><span class="mi">20</span>
+<span class="p">)</span>
+</code></pre>
+<h3 id='randomtimer' class='heading'>RandomTimer</h3>
+
+<p>A repeating timer scheduling events with pseudo-random intervals.</p>
+
+<p>It immediately schedules itself on the current run loop when created.</p>
+<pre class="highlight swift"><code><span class="k">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="kt">RandomTimer</span><span class="p">(</span><span class="nv">intervalRange</span><span class="p">:</span> <span class="mi">5</span><span class="o">...</span><span class="mi">10</span><span class="p">,</span> <span class="nv">seed</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// This get's called between 5 and 10 seconds, and will stop when deinitialized.</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='ready-for-liftoff' class='heading'>Ready for liftoff? 🚀</h2>
+
+<p>We&rsquo;re always looking for talent. Join one of the fastest-growing rocket ships in
+the business. Head over to our <a href="https://media.monks.com/careers">careers page</a>
+for more info!</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2022 <a class="link" href="https://github.com/mediamonks/MMMocking" target="_blank" rel="external noopener">MediaMonks</a>. All rights reserved. (Last updated: 2022-04-26)</p>
+      <p></p>
+    </section>
+  </body>
+</html>
